@@ -5,6 +5,9 @@
 ANIMATION_MAP createAnimationList(std::string unitType) {
 	std::ifstream fileStream(unitType + "/animations.txt");
 	ANIMATION_MAP animationList;
+	if (unitType == "NULL") {
+		return animationList;
+	}
 
 	if (fileStream) {
 		while (!fileStream.eof()) {
@@ -25,6 +28,9 @@ ANIMATION_MAP createAnimationList(std::string unitType) {
 }
 
 int getEndFrameIndex(ANIMATION_MAP animationList, std::string unitType) {
+	if (unitType == "NULL") {
+		return 0;
+	}
 	if (animationList.empty()) {
 		std::cout << "ERROR - ANIMATION MAP EMPTY IN " << unitType;
 		return 0;

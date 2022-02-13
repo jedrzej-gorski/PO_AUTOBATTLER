@@ -11,8 +11,7 @@ class UnitController {
 		std::vector<Unit> enemyTeam;
 	public:
 		UnitController(std::vector<Unit> savedTeam);
-		virtual void step() = 0;
-		virtual void initializeController() = 0;
+		//virtual void step() = 0;
 };
 
 #endif

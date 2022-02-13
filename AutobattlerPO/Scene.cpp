@@ -1,7 +1,7 @@
 #include "Scene.h"
+#include <SFML/Graphics.hpp>
 
-void setBackground()
+void Scene::setBackground()
 {
-	texture.loadFromFile("graphics/background.png");
-	
+	sceneBackground.loadFromFile("graphics/background.png");
 }

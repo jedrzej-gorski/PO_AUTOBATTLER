@@ -1,8 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include "Game.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 800), "Autobattler");
+    Game gameInstance;
+    gameInstance.initializeGame();
 
     sf::Clock clock;
     window.setFramerateLimit(60);
@@ -21,13 +24,12 @@ int main()
 
         }
 
-        if (sf::Mouse::is:ButtonPressed(sf::Mouse::Right))
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
         {
 
         }
 
         window.clear();
-        window.draw(shape);
         window.display();
     }
 

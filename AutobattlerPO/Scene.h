@@ -19,7 +19,6 @@ class Scene {
 		void setBackground();
 		void drawBackground();
 		void drawSprites();
-		virtual void resolveEventQueue() = 0;
 };
 
 #endif

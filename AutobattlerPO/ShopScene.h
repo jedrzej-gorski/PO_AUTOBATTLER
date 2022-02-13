@@ -3,15 +3,15 @@
 
 #include "Scene.h"
 #include "Unit.h"
+#include "ShopController.h"
 
 #include <vector>
 
 class ShopScene : public Scene {
 	private:
-		int selectedUnit;
 		ShopController controller;
 	public:
-		ShopScene();
+		ShopScene(int savedLevel, std::vector<Unit> savedTeam, UNIT_MAP unitData, SPRITE_MAP &imageData);
 		void resolveEventQueue();
 };
 

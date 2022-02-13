@@ -17,7 +17,7 @@ class ShopController : public UnitController {
 		void processPurchase();
 		void processSell();
 		void removeShopUnit(int removeIndex);
-		void initializeShop(std::vector<Unit> savedTeam, UNIT_MAP unit_data, SPRITE_MAP &imageData);
+		void initializeShop(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 };
 #endif
 

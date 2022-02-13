@@ -10,8 +10,7 @@ ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam): Unit
 	selectedUnit = nullptr;
 }
 
-void ShopController::initializeShop(std::vector<Unit> savedTeam, UNIT_MAP unitData, SPRITE_MAP &imageData) {
-	playerTeam = savedTeam;
+void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
 	UNIT_MAP::iterator it;
 
 	for (it = unitData.begin(); it != unitData.end(); it++) {

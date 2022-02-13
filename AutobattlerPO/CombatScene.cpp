@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iterator>
 #include <stdlib.h>
+#include <iostream>
 
 void startCombat() {
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
@@ -62,17 +63,17 @@ void resolveEventQueue() {
 
 	if(currentHealth[0] <= 0) { 
 		//player win
-		std::count << "You WIN!";
+		std::cout << "You WIN!";
 		//money += 5;
 	}
 	else if (currentHealth[1] <= 0) {
 		//enemy win
-		std::count << "You lose.";
+		std::cout << "You lose.";
 		//money += 1;
 	}
 	else {
 		//stalemate
-		std::count << "Stalemate!";
+		std::cout << "Stalemate!";
 		//money += 3;
 	}
 }

@@ -7,17 +7,19 @@ TokenSprite::TokenSprite(std::string unitType, int lastFrame, SPRITE_MAP &imageD
 	currentFrame = 0;
 	endFrame = 0;
 
-	if (imageData[unitType].size() == 0) {
-		for (int i = 0; i <= lastFrame; i++) {
-			sf::Texture newTexture;
-			std::string texturePath = unitType + "/" + std::to_string(i) + ".txt";
-			if (!newTexture.loadFromFile(texturePath)) {
-				std::cout << "ERROR - LOADING SPRITE " << i << " FOR " << unitType;
+	if (unitType != "NULL") {
+		if (imageData[unitType].size() == 0) {
+			for (int i = 0; i <= lastFrame; i++) {
+				sf::Texture newTexture;
+				std::string texturePath = unitType + "/" + std::to_string(i) + ".txt";
+				if (!newTexture.loadFromFile(texturePath)) {
+					std::cout << "ERROR - LOADING SPRITE " << i << " FOR " << unitType;
+				}
+				imageData[unitType].push_back(newTexture);
 			}
-			imageData[unitType].push_back(newTexture);
 		}
+		frameList = &imageData[unitType];
 	}
-	frameList = &imageData[unitType];
 }
 
 void TokenSprite::setAnimationFrames(int start, int end) {
