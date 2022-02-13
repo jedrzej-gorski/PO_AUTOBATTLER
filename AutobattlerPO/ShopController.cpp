@@ -56,5 +56,15 @@ void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 }
 
 void ShopController::processSell() {
-
+	
+	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
+		if (playerTeam[i].getUnitType() != "NULL") {
+			//if (sf::Mouse::GetPosition(window).x == unitSprite.getPosition().x &&
+			//	  sf::Mouse::GetPosition(window).y == unitSprite.getPosition().y){
+			//		playerTeam[i]=0;
+			//		money++;
+			//}
+			//check if mouse hovers over a unit
+		}
+	}
 }
