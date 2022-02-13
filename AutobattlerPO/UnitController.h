@@ -8,6 +8,7 @@
 class UnitController {
 	protected:
 		std::vector<Unit> playerTeam;
+		std::vector<Unit> enemyTeam;
 	public:
 		UnitController(std::vector<Unit> savedTeam);
 		virtual void step() = 0;
