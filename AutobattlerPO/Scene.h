@@ -19,8 +19,9 @@ class Scene {
 		virtual void startScene() {};
 		virtual void setBackground() {};
 		void drawBackground();
+		virtual bool processKeyboard(sf::Keyboard::Key keyToCheck) {};
 		virtual void drawSprites() {};
-		virtual void processMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {};
+		virtual void processMouseInput(sf::Vector2i relativeMousePosition) {};
 		virtual std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData() {};
 };
 

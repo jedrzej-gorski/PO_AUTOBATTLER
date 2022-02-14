@@ -15,19 +15,19 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (event.mouseButton.button == sf::Mouse::Left) {
+                    gameInstance.passMouseInput(sf::Mouse::getPosition(window));
+                }
+            }
+            if (event.type == sf::Event::KeyPressed) {
+                gameInstance.sendKeyboard(event.key.code);
+            }
         }
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        {
-            gameInstance.passMouseInput(sf::Mouse::getPosition(window), LEFT_CLICK);
-        }
-
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-        {
-            gameInstance.passMouseInput(sf::Mouse::getPosition(window), RIGHT_CLICK);
-        }
 
         window.clear();
         gameInstance.drawScene();

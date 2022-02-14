@@ -95,3 +95,23 @@ std::vector<Unit> ShopController::getShopUnits() {
 std::vector<std::string> ShopController::getValidUnits() {
 	return validUnits;
 }
+
+int ShopController::getMoney() {
+	return money;
+}
+
+bool ShopController::hasSelectedUnit() {
+	if (selectedUnit == nullptr) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+bool ShopController::teamIsEmpty() {
+	if (playerTeam[0].getUnitType() == "NULL") {
+		return true;
+	}
+	return false;
+}

@@ -13,6 +13,7 @@ class CombatScene : public Scene {
 		CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData, sf::RenderWindow *gameWindow);
 		void startScene();
 		void drawSprites();
+		bool processKeyboard(sf::Keyboard::Key keyToCheck);
 		void resolveEventQueue();
 		std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData();
 

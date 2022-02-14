@@ -18,8 +18,9 @@ class Game {
 		Game(sf::RenderWindow* passedWindow);
 		void changeScene();
 		void initializeGame();
-		void passMouseInput(sf::Vector2i relativeMousePosition, int mouseButton);
+		void passMouseInput(sf::Vector2i relativeMousePosition);
 		void drawScene();
+		void sendKeyboard(sf::Keyboard::Key keyToCheck);
 };
 
 #endif

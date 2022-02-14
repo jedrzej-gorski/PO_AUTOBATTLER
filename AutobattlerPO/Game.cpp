@@ -32,8 +32,8 @@ Game::Game(sf::RenderWindow* passedWindow) {
 	gameWindow = passedWindow;
 }
 
-void Game::passMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {
-	currentScene.processMouseInput(relativeMousePosition, mouseButton);
+void Game::passMouseInput(sf::Vector2i relativeMousePosition) {
+	currentScene.processMouseInput(relativeMousePosition);
 }
 
 void Game::changeScene() {
@@ -60,4 +60,10 @@ void Game::changeScene() {
 
 void Game::drawScene() {
 	currentScene.drawSprites();
+}
+
+void Game::sendKeyboard(sf::Keyboard::Key keyToCheck) {
+	if (currentScene.processKeyboard(keyToCheck)) {
+		changeScene();
+	}
 }

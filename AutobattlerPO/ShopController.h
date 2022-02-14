@@ -16,6 +16,9 @@ class ShopController : public UnitController {
 		void processReroll(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 		void processPurchase();
 		void processSell();
+		int getMoney();
+		bool hasSelectedUnit();
+		bool teamIsEmpty();
 		void removeShopUnit(int removeIndex);
 		void initializeShop(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 		std::vector<Unit> getPlayerTeam();

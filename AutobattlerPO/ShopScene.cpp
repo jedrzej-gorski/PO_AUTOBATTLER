@@ -11,7 +11,7 @@ void ShopScene::startScene() {
 	controller.initializeShop(unitData, imageData);
 }
 
-void ShopScene::processMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {
+void ShopScene::processMouseInput(sf::Vector2i relativeMousePosition) {
 	//searching for overlap in playerTeam and shopUnits
 	std::vector<Unit> searchedUnits;
 	searchedUnits = controller.getPlayerTeam();
@@ -19,6 +19,35 @@ void ShopScene::processMouseInput(sf::Vector2i relativeMousePosition, int mouseB
 
 	}
 } 
+
+//if true, change scene.
+bool ShopScene::processKeyboard(sf::Keyboard::Key keyToCheck) {
+	if (keyToCheck == sf::Keyboard::Key::R) {
+		if (controller.getMoney() > 0) {
+			controller.processReroll(unitData, imageData);
+		}
+		return false;
+	}
+	if (keyToCheck == sf::Keyboard::Key::S) {
+		if (controller.hasSelectedUnit()) {
+			//to update for actual sell implementation
+			controller.processSell();
+		}
+		return false;
+	}
+	if (keyToCheck == sf::Keyboard::Key::Enter) {
+		if (!controller.teamIsEmpty()) {
+			return true;
+		}
+		return false;
+	}
+	if (keyToCheck == sf::Keyboard::Key::B) {
+		if (controller.hasSelectedUnit()) {
+			controller.processPurchase();
+		}
+		return false;
+	}
+}
 
 std::tuple<std::vector<Unit>, std::vector<std::string>> ShopScene::getTransitionData() {
 	std::vector<Unit> savedPlayerTeam = controller.getPlayerTeam();

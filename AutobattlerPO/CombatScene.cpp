@@ -117,3 +117,12 @@ void CombatScene::resolveEventQueue() {
 		//money += 3;
 	}
 }
+
+bool CombatScene::processKeyboard(sf::Keyboard::Key keyToCheck) {
+	if (keyToCheck == sf::Keyboard::Key::Enter) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
