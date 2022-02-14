@@ -23,7 +23,7 @@ void CombatScene::startScene() {
 		//initialize random enemy team
 		int randomMax = validUnits.size();
 		int randIndex = rand() % randomMax;
-		enemyTeam.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData));
+		enemyTeam.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData, DEFAULT_UNIT_SIZE));
 	}
 
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {

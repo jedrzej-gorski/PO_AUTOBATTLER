@@ -23,9 +23,13 @@ void ShopScene::startScene() {
 }
 
 void ShopScene::processMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {
-	//TODO: whatever this is
-	controller.processMousePosition(relativeMousePosition, mouseButton);
-}
+	//searching for overlap in playerTeam and shopUnits
+	std::vector<Unit> searchedUnits;
+	searchedUnits = controller.getPlayerTeam();
+	for (int i = 0; i < searchedUnits.size(); i++) {
+
+	}
+} 
 
 std::tuple<std::vector<Unit>, std::vector<std::string>> ShopScene::getTransitionData() {
 	std::vector<Unit> savedPlayerTeam = controller.getPlayerTeam();

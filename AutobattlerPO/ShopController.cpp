@@ -8,6 +8,7 @@
 ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam): UnitController(savedTeam) {
 	shopRank = savedRank;
 	selectedUnit = nullptr;
+	selectedType = NONE;
 }
 
 void ShopController::updatePositions() {
@@ -62,7 +63,7 @@ void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 	randomMax = validUnits.size();
 	for (int i = 0; i < numberAllowedUnits; i++) {
 		int randIndex = rand() % randomMax;
-		shopUnits.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData));
+		shopUnits.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData, DEFAULT_UNIT_SIZE));
 	}
 	updatePositions();
 	money -= 1;

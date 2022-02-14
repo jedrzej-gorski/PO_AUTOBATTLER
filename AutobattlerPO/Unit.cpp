@@ -1,6 +1,6 @@
 #include "Unit.h"
 
-Unit::Unit(std::string unitType, std::tuple<int, int> statSpread, SPRITE_MAP &imageData): Token(unitType, 0, 0, imageData) {
+Unit::Unit(std::string unitType, std::tuple<int, int> statSpread, SPRITE_MAP &imageData, int size): Token(unitType, 0, 0, imageData, int size) {
 	type = unitType;
 	baseHealth = std::get<0>(statSpread);
 	baseAttack = std::get<1>(statSpread);

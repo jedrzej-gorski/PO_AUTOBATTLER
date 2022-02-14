@@ -12,7 +12,7 @@ class Unit : public Token {
 		int modifierHealth;
 		int modifierAttack;
 	public:
-		Unit(std::string unitType, std::tuple<int, int> statSpread, SPRITE_MAP& imageData);
+		Unit(std::string unitType, std::tuple<int, int> statSpread, SPRITE_MAP& imageData, int size);
 		void addModifierAttack(int value);
 		void addModifierHealth(int value);
 		void addBaseAttack(int value);

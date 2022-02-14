@@ -40,9 +40,11 @@ int getEndFrameIndex(ANIMATION_MAP animationList, std::string unitType) {
 	}
 }
 
-Token::Token(std::string unitType, int x, int y, SPRITE_MAP &imageData) : animationFrameList(createAnimationList(unitType)), Sprite(TokenSprite(unitType, getEndFrameIndex(animationFrameList, unitType), imageData)) {
+Token::Token(std::string unitType, int x, int y, SPRITE_MAP &imageData, int size) : animationFrameList(createAnimationList(unitType)), Sprite(TokenSprite(unitType, getEndFrameIndex(animationFrameList, unitType), imageData)) {
 	xPos = x;
 	yPos = y;
+	width = size;
+	height = size;
 	xVel = 0;
 	yVel = 0;
 	currentTexture = sf::Texture();
@@ -79,4 +81,24 @@ void Token::setVelocity(int x, int y) {
 void Token::moveToken() {
 	xPos += xVel;
 	yPos += yVel;
+}
+
+void Token::setWidth(int x) {
+	width = x;
+}
+
+void Token::setHeight(int y) {
+	height = y;
+}
+
+std::tuple<int, int> Token::getPosition() {
+	return std::make_tuple(xPos, yPos);
+}
+
+int Token::getWidth() {
+	return width;
+}
+
+int Token::getHeight() {
+	return height;
 }

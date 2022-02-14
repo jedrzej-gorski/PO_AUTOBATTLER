@@ -8,9 +8,6 @@ void Game::initializeGame() {
 	std::ifstream dataStream("data/unitData.txt");
 	std::string unitName;
 	int unitRank, unitHealth, unitAttack;
-	turn = 0;
-	savedRank = 1;
-	currentPhase = SHOP;
 
 	//loading unit data
 	if (dataStream) {
@@ -23,12 +20,15 @@ void Game::initializeGame() {
 
 	//declaring a vector of empty units
 	//WARNING: watch out for processing graphics data on a unit type that doesn't exist
-	std::vector<Unit> emptyTeam(MAX_TEAM_SIZE, Unit("NULL", std::make_tuple(0, 0), graphicData));
+	std::vector<Unit> emptyTeam(MAX_TEAM_SIZE, Unit("NULL", std::make_tuple(0, 0), graphicData, 0));
 	currentScene = ShopScene(savedRank, emptyTeam, unitData, graphicData);
 	currentScene.setBackground();
 }
 
 Game::Game(sf::RenderWindow* passedWindow) {
+	turn = 0;
+	savedRank = 1;
+	currentPhase = SHOP;
 	window = passedWindow;
 }
 
