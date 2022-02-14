@@ -27,7 +27,10 @@ void CombatScene::startScene() {
 	}
 
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
-		//draw sprites on screen
+		//putting enemy team where the shop was, might shift it a bit to the right to differentiate
+		enemyTeam[i].setPosition((72 + 191) * i + 72, 72);
+		//might not be needed. Player team is already there
+		playerTeam[i].setPosition((72 + 191) * i + 72, 490);
 	}
 }
 
@@ -36,8 +39,8 @@ void CombatScene::resolveEventQueue() {
 	//NOTE: could also be done in a do while loop
 	int currentHealth[2];
 	if (playerTeam[0].getUnitType() != "NULL" && enemyTeam[0].getUnitType() != "NULL"){
-		currentHealth[0] = playerTeam[0].baseHealth + playerTeam[0].modifierHealth;
-		currentHealth[1] = enemyTeam[0].baseHealth + enemyTeam[0].modifierHealth;
+		currentHealth[0] = playerTeam[0].getUnitHealth();
+		currentHealth[1] = enemyTeam[0].getUnitHealth();
 	}
 
 	//resolve unit abilities
@@ -49,25 +52,27 @@ void CombatScene::resolveEventQueue() {
 			enemyTeam[i].applyUnitEventEffects();
 		}
 	}*/
-	
+
 	int i = 0, j = 0;
-	
+
 	while (currentHealth[0] > 0 && currentHealth[1] > 0) {
 		//each unit lowers oponent's health by their attack
-		currentHealth[0] -= enemyTeam[j].baseAttack + enemyTeam[j].modifierAttack;
-		currentHealth[1] -= playerTeam[i].baseAttack + playerTeam[i].modifierAttack;
+		currentHealth[0] -= enemyTeam[j].getUnitAttack();
+		currentHealth[1] -= playerTeam[i].getUnitAttack();
+
+		//placeholder for attack animations
 
 		//if the unit dies, replace by the next team member if available
 		if (currentHealth[0] <= 0) {
 			if (playerTeam[i + 1].getUnitType() != "NULL") {
 				i++;
-				currentHealth[0]= playerTeam[i].baseHealth + playerTeam[i].modifierHealth;
+				currentHealth[0]= playerTeam[i].getUnitHealth;
 			}
 		}
 		if (currentHealth[1] <= 0) {
 			if (enemyTeam[j + 1].getUnitType() != "NULL") {
 				j++;
-				currentHealth[1] = enemyTeam[j].baseHealth + enemyTeam[j].modifierHealth;
+				currentHealth[1] = enemyTeam[j].getUnitHealth;
 			}
 		}
 	}
