@@ -13,9 +13,9 @@ CombatScene::CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::str
 	unitData = passedUnitData;
 }
 
-std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData() {
+std::tuple<std::vector<Unit>, std::vector<std::string>> CombatScene::getTransitionData() {
 	std::vector<std::string> emptyVector;
-	std::make_tuple
+	return std::make_tuple(playerTeam, emptyVector);
 }
 
 void CombatScene::startScene() {

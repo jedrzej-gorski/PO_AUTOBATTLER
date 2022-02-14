@@ -47,6 +47,9 @@ void Game::changeScene() {
 			savedRank++;
 		}
 		currentScene = ShopScene(savedRank, std::get<0>(transitionData), unitData, graphicData);
+		currentPhase = SHOP;
+		window->clear();
+		currentScene.startScene();
 	}
 	//if in shop
 	else {
