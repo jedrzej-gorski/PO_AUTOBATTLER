@@ -5,13 +5,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam, int turn): UnitController(savedTeam) {
+ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam): UnitController(savedTeam) {
 	shopRank = savedRank;
 	selectedUnit = nullptr;
-	//if turn number is even, and rank < 3 increase shop rank;
-	if (turn % 2 == 0 && shopRank < 3) {
-		shopRank++;
-	}
 }
 
 void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
