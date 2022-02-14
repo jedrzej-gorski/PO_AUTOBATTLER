@@ -20,6 +20,8 @@ class Unit : public Token {
 		void resetModifiers();
 		gameEvent applyUnitEventEffects(unitEvent processedEvent);
 		std::string getUnitType();
+		int getUnitHealth();
+		int getUnitAttack();
 };
 
 #endif
