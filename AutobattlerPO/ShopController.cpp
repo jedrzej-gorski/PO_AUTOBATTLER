@@ -38,7 +38,7 @@ void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
 }
 
 void ShopController::processPurchase() {
-	if (money > PURCHASE_COST) {
+	if (money > PURCHASE_COST && selectedType == SHOP_UNIT) {
 		for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 			if (playerTeam[i].getUnitType() == "NULL") {
 				playerTeam[i] = *selectedUnit;
@@ -57,6 +57,7 @@ void ShopController::removeShopUnit(int removeIndex) {
 
 void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 	shopUnits.clear();
+	selectedUnit = nullptr;
 	int randomMax;
 	randomMax = validUnits.size();
 	for (int i = 0; i < numberAllowedUnits; i++) {
@@ -68,15 +69,16 @@ void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 }
 
 void ShopController::processSell() {
-	//TODO: differentiate between selectedUnit in shop and team
-	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
-		if (playerTeam[i].getUnitType() != "NULL") {
-			//if (sf::Mouse::GetPosition(window).x == unitSprite.getPosition().x &&
-			//	  sf::Mouse::GetPosition(window).y == unitSprite.getPosition().y){
-			//		playerTeam[i]=0;
-			//		money++;
-			//}
-			//check if mouse hovers over a unit
+	if (selectedType == TEAM_UNIT) {
+		for (int i = 0; i < MAX_TEAM_SIZE; i++) {
+			if (playerTeam[i].getUnitType() != "NULL") {
+				//if (sf::Mouse::GetPosition(window).x == unitSprite.getPosition().x &&
+				//	  sf::Mouse::GetPosition(window).y == unitSprite.getPosition().y){
+				//		playerTeam[i]=0;
+				//		money++;
+				//}
+				//check if mouse hovers over a unit
+			}
 		}
 	}
 }

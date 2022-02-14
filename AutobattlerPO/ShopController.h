@@ -9,6 +9,7 @@ class ShopController : public UnitController {
 		int numberAllowedUnits = 4;
 		std::vector<Unit> shopUnits;
 		Unit *selectedUnit;
+		int selectedType;
 	public:
 		ShopController(int savedLevel, std::vector<Unit> savedTeam);
 		void updatePositions();

@@ -66,13 +66,13 @@ void CombatScene::resolveEventQueue() {
 		if (currentHealth[0] <= 0) {
 			if (playerTeam[i + 1].getUnitType() != "NULL") {
 				i++;
-				currentHealth[0]= playerTeam[i].getUnitHealth;
+				currentHealth[0]= playerTeam[i].getUnitHealth();
 			}
 		}
 		if (currentHealth[1] <= 0) {
 			if (enemyTeam[j + 1].getUnitType() != "NULL") {
 				j++;
-				currentHealth[1] = enemyTeam[j].getUnitHealth;
+				currentHealth[1] = enemyTeam[j].getUnitHealth();
 			}
 		}
 	}
