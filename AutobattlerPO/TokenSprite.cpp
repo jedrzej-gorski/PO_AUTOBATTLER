@@ -11,7 +11,7 @@ TokenSprite::TokenSprite(std::string unitType, int lastFrame, SPRITE_MAP &imageD
 		if (imageData[unitType].size() == 0) {
 			for (int i = 0; i <= lastFrame; i++) {
 				sf::Texture newTexture;
-				std::string texturePath = unitType + "/" + std::to_string(i) + ".txt";
+				std::string texturePath = "graphics/" + unitType + ".png";
 				if (!newTexture.loadFromFile(texturePath)) {
 					std::cout << "ERROR - LOADING SPRITE " << i << " FOR " << unitType;
 				}
