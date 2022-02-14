@@ -5,12 +5,18 @@
 #include <stdlib.h>
 #include <time.h>
 
-ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam, int turn): UnitController(savedTeam) {
+ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam): UnitController(savedTeam) {
 	shopRank = savedRank;
 	selectedUnit = nullptr;
-	//if turn number is even, and rank < 3 increase shop rank;
-	if (turn % 2 == 0 && shopRank < 3) {
-		shopRank++;
+}
+
+void ShopController::updatePositions() {
+	for (int i = 0; i < numberAllowedUnits; i++) {
+		shopUnits[i].setPosition((72 + 191) * i + 72, 72);
+	}
+
+	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
+		playerTeam[i].setPosition((72 + 191) * i + 72, 490);
 	}
 }
 
@@ -27,15 +33,8 @@ void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
 	}
 
 	processReroll(unitData, imageData);
+	updatePositions();
 	money = MAX_MONEY;
-
-	for (int i = 0; i < numberAllowedUnits; i++) {
-		shopUnits[i].setPosition((72 + 191) * i + 72, 72);
-	}
-
-	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
-		playerTeam[i].setPosition((72 + 191) * i + 72, 490);
-	}
 }
 
 void ShopController::processPurchase() {
@@ -44,6 +43,7 @@ void ShopController::processPurchase() {
 			if (playerTeam[i].getUnitType() == "NULL") {
 				playerTeam[i] = *selectedUnit;
 				removeShopUnit(i);
+				updatePositions();
 				selectedUnit = nullptr;
 				break;
 			}
@@ -63,6 +63,7 @@ void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 		int randIndex = rand() % randomMax;
 		shopUnits.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData));
 	}
+	updatePositions();
 	money -= 1;
 }
 
@@ -82,6 +83,10 @@ void ShopController::processSell() {
 
 std::vector<Unit> ShopController::getPlayerTeam() {
 	return playerTeam;
+}
+
+std::vector<Unit> ShopController::getShopUnits() {
+	return shopUnits;
 }
 
 std::vector<std::string> ShopController::getValidUnits() {

@@ -15,9 +15,8 @@ class Scene {
 		SPRITE_MAP imageData;
 	public:
 		Scene();
-		void terminateScene();
-		void stepScene();
-		void setBackground();
+		virtual void startScene() {};
+		virtual void setBackground() {};
 		void drawBackground();
 		void drawSprites();
 		virtual void processMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {};

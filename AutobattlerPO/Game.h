@@ -13,8 +13,9 @@ class Game {
 		Scene currentScene;
 		SPRITE_MAP graphicData;
 		UNIT_MAP unitData;
+		sf::RenderWindow *window;
 	public:
-		Game();
+		Game(sf::RenderWindow *passedWindow);
 		void changeScene();
 		void initializeGame();
 		void stepGame();

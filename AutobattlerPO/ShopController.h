@@ -10,14 +10,15 @@ class ShopController : public UnitController {
 		std::vector<Unit> shopUnits;
 		Unit *selectedUnit;
 	public:
-		ShopController(int savedLevel, std::vector<Unit> savedTeam, int turn);
-		void step();
+		ShopController(int savedLevel, std::vector<Unit> savedTeam);
+		void updatePositions();
 		void processReroll(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 		void processPurchase();
 		void processSell();
 		void removeShopUnit(int removeIndex);
 		void initializeShop(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 		std::vector<Unit> getPlayerTeam();
+		std::vector<Unit> getShopUnits();
 		std::vector<std::string> getValidUnits();
 };
 #endif

@@ -10,8 +10,9 @@ class CombatScene : public Scene {
 		std::vector<std::string> validUnits;
 	public:
 		CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData);
-		void startCombat();
+		void startScene();
 		void resolveEventQueue();
+		std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData();
 
 };
 

@@ -13,7 +13,12 @@ CombatScene::CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::str
 	unitData = passedUnitData;
 }
 
-void CombatScene::startCombat() {
+std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData() {
+	std::vector<std::string> emptyVector;
+	std::make_tuple
+}
+
+void CombatScene::startScene() {
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 		//initialize random enemy team
 		int randomMax = validUnits.size();
@@ -21,8 +26,6 @@ void CombatScene::startCombat() {
 		enemyTeam.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData));
 	}
 
-	//i believe window clearing should be part of Game's transition between scenes? that should be way easier than passing window all the way to CombatScene
-	//window.clear();
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 		//draw sprites on screen
 	}
