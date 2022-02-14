@@ -2,7 +2,8 @@
 #include <fstream>
 #include <iostream>
 
-ANIMATION_MAP createAnimationList(std::string unitType) {
+//the following is used for implementing animations
+/*ANIMATION_MAP createAnimationList(std::string unitType) {
 	std::ifstream fileStream(unitType + "/animations.txt");
 	ANIMATION_MAP animationList;
 	if (unitType == "NULL") {
@@ -25,7 +26,7 @@ ANIMATION_MAP createAnimationList(std::string unitType) {
 	}
 
 	return animationList;
-}
+}*/
 
 int getEndFrameIndex(ANIMATION_MAP animationList, std::string unitType) {
 	if (unitType == "NULL") {
@@ -40,7 +41,7 @@ int getEndFrameIndex(ANIMATION_MAP animationList, std::string unitType) {
 	}
 }
 
-Token::Token(std::string unitType, int x, int y, SPRITE_MAP &imageData, int size) : animationFrameList(createAnimationList(unitType)), Sprite(TokenSprite(unitType, getEndFrameIndex(animationFrameList, unitType), imageData)) {
+Token::Token(std::string unitType, int x, int y, SPRITE_MAP &imageData, int size) : Sprite(TokenSprite(unitType, 0, imageData)) {
 	xPos = x;
 	yPos = y;
 	width = size;
@@ -55,8 +56,10 @@ void Token::newAnimation(animationTag nextAnimation) {
 	animationQueue.push(nextAnimation);
 }
 
-void Token::setNextTexture() {
-	if (animationQueue.empty()) {
+sf::Texture Token::getNextTexture() {
+	Sprite.getCurrentAnimationFrame();
+	//the following implementation would be used for animations
+	/*if (animationQueue.empty()) {
 		std::cout << "ERROR - ANIMATION QUEUE EMPTY";
 	}
 	else {
@@ -65,7 +68,7 @@ void Token::setNextTexture() {
 			Sprite.setAnimationFrames(std::get<0>(animationFrameList[animationQueue.front()]), std::get<1>(animationFrameList[animationQueue.front()]));
 		}
 		currentTexture = Sprite.getCurrentAnimationFrame();
-	}
+	}*/
 }
 
 void Token::setPosition(int x, int y) {

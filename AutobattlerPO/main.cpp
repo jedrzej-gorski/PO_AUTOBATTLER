@@ -4,7 +4,7 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 800), "Autobattler");
-    Game gameInstance;
+    Game gameInstance = Game(&window);
     gameInstance.initializeGame();
 
     sf::Clock clock;
@@ -30,6 +30,7 @@ int main()
         }
 
         window.clear();
+        gameInstance.drawScene();
         window.display();
     }
 

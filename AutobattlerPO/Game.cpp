@@ -21,7 +21,7 @@ void Game::initializeGame() {
 	//declaring a vector of empty units
 	//WARNING: watch out for processing graphics data on a unit type that doesn't exist
 	std::vector<Unit> emptyTeam(MAX_TEAM_SIZE, Unit("NULL", std::make_tuple(0, 0), graphicData, 0));
-	currentScene = ShopScene(savedRank, emptyTeam, unitData, graphicData);
+	currentScene = ShopScene(savedRank, emptyTeam, unitData, graphicData, gameWindow);
 	currentScene.setBackground();
 }
 
@@ -29,7 +29,7 @@ Game::Game(sf::RenderWindow* passedWindow) {
 	turn = 0;
 	savedRank = 1;
 	currentPhase = SHOP;
-	window = passedWindow;
+	gameWindow = passedWindow;
 }
 
 void Game::passMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {
@@ -46,17 +46,18 @@ void Game::changeScene() {
 		if (turn % 2 == 0 && savedRank < 3) {
 			savedRank++;
 		}
-		currentScene = ShopScene(savedRank, std::get<0>(transitionData), unitData, graphicData);
+		currentScene = ShopScene(savedRank, std::get<0>(transitionData), unitData, graphicData, gameWindow);
 		currentPhase = SHOP;
-		window->clear();
 		currentScene.startScene();
 	}
 	//if in shop
 	else {
-		currentScene = CombatScene(std::get<0>(transitionData), std::get<1>(transitionData), graphicData, unitData);
+		currentScene = CombatScene(std::get<0>(transitionData), std::get<1>(transitionData), graphicData, unitData, gameWindow);
 		currentPhase = COMBAT;
-		window->clear();
 		currentScene.startScene();
 	}
 }
 
+void Game::drawScene() {
+	currentScene.drawSprites();
+}

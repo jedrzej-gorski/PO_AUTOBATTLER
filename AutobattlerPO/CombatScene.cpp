@@ -6,11 +6,12 @@
 #include <stdlib.h>
 #include <iostream>
 
-CombatScene::CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData) {
+CombatScene::CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData, sf::RenderWindow *passedWindow) {
 	playerTeam = savedPlayerTeam;
 	validUnits = savedValidUnits;
 	imageData = passedImageData;
 	unitData = passedUnitData;
+	gameWindow = passedWindow;
 }
 
 std::tuple<std::vector<Unit>, std::vector<std::string>> CombatScene::getTransitionData() {
@@ -31,6 +32,29 @@ void CombatScene::startScene() {
 		enemyTeam[i].setPosition((72 + 191) * i + 72, 72);
 		//might not be needed. Player team is already there
 		playerTeam[i].setPosition((72 + 191) * i + 72, 490);
+	}
+}
+
+void CombatScene::drawSprites() {
+	for (int i = 0; i < playerTeam.size(); i++) {
+		if (playerTeam[i].getUnitType() != "NULL") {
+			sf::Sprite properSprite;
+			properSprite.setTexture(playerTeam[i].getNextTexture());
+			int xPos = std::get<0>(playerTeam[i].getPosition());
+			int yPos = std::get<1>(playerTeam[i].getPosition());
+			properSprite.setPosition(sf::Vector2f(xPos, yPos));
+			gameWindow->draw(properSprite);
+		}
+	}
+	for (int i = 0; i < enemyTeam.size(); i++) {
+		if (enemyTeam[i].getUnitType() != "NULL") {
+			sf::Sprite properSprite;
+			properSprite.setTexture(enemyTeam[i].getNextTexture());
+			int xPos = std::get<0>(playerTeam[i].getPosition());
+			int yPos = std::get<1>(playerTeam[i].getPosition());
+			properSprite.setPosition(sf::Vector2f(xPos, yPos));
+			gameWindow->draw(properSprite);
+		}
 	}
 }
 

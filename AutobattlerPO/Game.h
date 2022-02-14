@@ -13,13 +13,13 @@ class Game {
 		Scene currentScene;
 		SPRITE_MAP graphicData;
 		UNIT_MAP unitData;
-		sf::RenderWindow *window;
+		sf::RenderWindow* gameWindow;
 	public:
-		Game(sf::RenderWindow *passedWindow);
+		Game(sf::RenderWindow* passedWindow);
 		void changeScene();
 		void initializeGame();
-		void stepGame();
 		void passMouseInput(sf::Vector2i relativeMousePosition, int mouseButton);
+		void drawScene();
 };
 
 #endif

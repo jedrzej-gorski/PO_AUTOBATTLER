@@ -13,12 +13,13 @@ class Scene {
 		sf::Texture sceneBackground;
 		UNIT_MAP unitData;
 		SPRITE_MAP imageData;
+		sf::RenderWindow* gameWindow;
 	public:
 		Scene();
 		virtual void startScene() {};
 		virtual void setBackground() {};
 		void drawBackground();
-		void drawSprites();
+		virtual void drawSprites() {};
 		virtual void processMouseInput(sf::Vector2i relativeMousePosition, int mouseButton) {};
 		virtual std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData() {};
 };

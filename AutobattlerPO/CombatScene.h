@@ -8,9 +8,11 @@ class CombatScene : public Scene {
 		std::vector<Unit> playerTeam;
 		std::vector<Unit> enemyTeam;
 		std::vector<std::string> validUnits;
+		sf::RenderWindow* gameWindow;
 	public:
-		CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData);
+		CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData, sf::RenderWindow *gameWindow);
 		void startScene();
+		void drawSprites();
 		void resolveEventQueue();
 		std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData();
 

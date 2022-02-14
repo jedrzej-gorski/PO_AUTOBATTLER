@@ -11,11 +11,12 @@ class ShopScene : public Scene {
 	private:
 		ShopController controller;
 	public:
-		ShopScene(int savedLevel, std::vector<Unit> savedTeam, UNIT_MAP passedUnitData, SPRITE_MAP passedImageData) : controller(ShopController(savedLevel, savedTeam)) {};
+		ShopScene(int savedLevel, std::vector<Unit> savedTeam, UNIT_MAP passedUnitData, SPRITE_MAP passedImageData, sf::RenderWindow* passedWindow) : controller(ShopController(savedLevel, savedTeam)) {};
 		void startScene();
 		void resolveEventQueue();
 		void processMouseInput(sf::Vector2i relativeMousePosition, int mouseButton);
 		std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData();
+		void drawSprites();
 };
 
 #endif
