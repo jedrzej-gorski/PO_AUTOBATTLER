@@ -32,3 +32,11 @@ void Unit::resetModifiers() {
 std::string Unit::getUnitType() {
 	return type;
 }
+
+std::int Unit::getUnitHealth() {
+	return (baseHealth + modifierHealth);
+}
+
+std::int Unit::getUnitAttack() {
+	return (baseAttack + modifierAttack);
+} 
