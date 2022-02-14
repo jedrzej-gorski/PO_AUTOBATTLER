@@ -68,7 +68,7 @@ void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 }
 
 void ShopController::processSell() {
-	
+	//TODO: differentiate between selectedUnit in shop and team
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 		if (playerTeam[i].getUnitType() != "NULL") {
 			//if (sf::Mouse::GetPosition(window).x == unitSprite.getPosition().x &&
