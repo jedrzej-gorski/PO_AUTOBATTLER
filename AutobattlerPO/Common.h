@@ -4,10 +4,15 @@
 #define MAX_MONEY 10
 #define PURCHASE_COST 3
 #define MAX_TEAM_SIZE 5
+#define LEFT_CLICK 0
+#define RIGHT_CLICK 1
+#define SHOP 0
+#define COMBAT 1
 
 #include <map>
 #include <vector>
 #include <string>
+#include <tuple>
 #include <SFML/Graphics.hpp>
 
 

@@ -7,6 +7,9 @@
 
 class Game {
 	private:
+		int turn;
+		int savedRank;
+		int currentPhase;
 		Scene currentScene;
 		SPRITE_MAP graphicData;
 		UNIT_MAP unitData;
@@ -15,6 +18,7 @@ class Game {
 		void changeScene();
 		void initializeGame();
 		void stepGame();
+		void passMouseInput(sf::Vector2i relativeMousePosition, int mouseButton);
 };
 
 #endif

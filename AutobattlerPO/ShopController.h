@@ -6,18 +6,19 @@ class ShopController : public UnitController {
 	private:
 		int money = 0;
 		int shopRank = 0;
-		int numberAllowedUnits = 0;
+		int numberAllowedUnits = 4;
 		std::vector<Unit> shopUnits;
-		std::vector<std::string> validUnits;
 		Unit *selectedUnit;
 	public:
-		ShopController(int savedLevel, std::vector<Unit> savedTeam);
+		ShopController(int savedLevel, std::vector<Unit> savedTeam, int turn);
 		void step();
 		void processReroll(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 		void processPurchase();
 		void processSell();
 		void removeShopUnit(int removeIndex);
 		void initializeShop(UNIT_MAP unit_data, SPRITE_MAP &imageData);
+		std::vector<Unit> getPlayerTeam();
+		std::vector<std::string> getValidUnits();
 };
 #endif
 

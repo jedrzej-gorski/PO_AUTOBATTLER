@@ -21,12 +21,12 @@ int main()
 
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
-
+            gameInstance.passMouseInput(sf::Mouse::getPosition(window), LEFT_CLICK);
         }
 
         if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
         {
-
+            gameInstance.passMouseInput(sf::Mouse::getPosition(window), RIGHT_CLICK);
         }
 
         window.clear();

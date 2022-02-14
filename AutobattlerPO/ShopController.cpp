@@ -5,9 +5,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam): UnitController(savedTeam) {
+ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam, int turn): UnitController(savedTeam) {
 	shopRank = savedRank;
 	selectedUnit = nullptr;
+	//if turn number is even, and rank < 3 increase shop rank;
+	if (turn % 2 == 0 && shopRank < 3) {
+		shopRank++;
+	}
 }
 
 void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
@@ -24,6 +28,14 @@ void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
 
 	processReroll(unitData, imageData);
 	money = MAX_MONEY;
+
+	for (int i = 0; i < numberAllowedUnits; i++) {
+		shopUnits[i].setPosition((72 + 191) * i + 72, 72);
+	}
+
+	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
+		playerTeam[i].setPosition((72 + 191) * i + 72, 490);
+	}
 }
 
 void ShopController::processPurchase() {
@@ -66,4 +78,12 @@ void ShopController::processSell() {
 			//check if mouse hovers over a unit
 		}
 	}
+}
+
+std::vector<Unit> ShopController::getPlayerTeam() {
+	return playerTeam;
+}
+
+std::vector<std::string> ShopController::getValidUnits() {
+	return validUnits;
 }

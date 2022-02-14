@@ -6,25 +6,33 @@
 #include <stdlib.h>
 #include <iostream>
 
-void startCombat() {
+CombatScene::CombatScene(std::vector<Unit> savedPlayerTeam, std::vector<std::string> savedValidUnits, SPRITE_MAP passedImageData, UNIT_MAP passedUnitData) {
+	playerTeam = savedPlayerTeam;
+	validUnits = savedValidUnits;
+	imageData = passedImageData;
+	unitData = passedUnitData;
+}
+
+void CombatScene::startCombat() {
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 		//initialize random enemy team
-
+		int randomMax = validUnits.size();
 		int randIndex = rand() % randomMax;
 		enemyTeam.push_back(Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData));
 	}
 
-	window.clear();
+	//i believe window clearing should be part of Game's transition between scenes? that should be way easier than passing window all the way to CombatScene
+	//window.clear();
 	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 		//draw sprites on screen
 	}
 }
 
-void resolveEventQueue() {
+void CombatScene::resolveEventQueue() {
 	//copy the values of first units, we don't want to operate on the actual values since they reset between combats
 	//NOTE: could also be done in a do while loop
-	std::int currentHealth[2];
-	if (playerTeam[0].getUnitType() != "NULL") && enemyTeam[0].getUnitType() != "NULL"){
+	int currentHealth[2];
+	if (playerTeam[0].getUnitType() != "NULL" && enemyTeam[0].getUnitType() != "NULL"){
 		currentHealth[0] = playerTeam[0].baseHealth + playerTeam[0].modifierHealth;
 		currentHealth[1] = enemyTeam[0].baseHealth + enemyTeam[0].modifierHealth;
 	}
