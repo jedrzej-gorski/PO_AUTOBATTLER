@@ -25,6 +25,7 @@ class ShopController : public UnitController {
 		std::vector<Unit> getPlayerTeam();
 		std::vector<Unit> getShopUnits();
 		std::vector<std::string> getValidUnits();
+		void setSelectedUnit(int index, int type);
 };
 #endif
 
