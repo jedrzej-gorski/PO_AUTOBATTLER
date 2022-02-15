@@ -6,7 +6,7 @@
 #include <fstream>
 
 void Game::initializeGame() {
-	std::ifstream dataStream("../data/unitData.txt");
+	std::ifstream dataStream("./data/unitData.txt");
 	std::string unitName;
 	int unitRank, unitHealth, unitAttack;
 

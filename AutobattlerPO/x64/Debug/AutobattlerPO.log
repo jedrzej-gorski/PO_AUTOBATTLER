@@ -1,1 +1,138 @@
-﻿  AutobattlerPO.vcxproj -> C:\Users\gorsk\source\repos\AutobattlerPO\x64\Debug\AutobattlerPO.exe
+﻿  CombatScene.cpp
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(29,36): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(88,71): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(88,51): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(110,70): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(110,50): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(133,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(133,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(138,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(138,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(143,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(143,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(159,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(159,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(164,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(164,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(169,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(169,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+  main.cpp
+  ShopController.cpp
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopController.cpp(75,32): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+  ShopScene.cpp
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(86,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(86,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(94,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(94,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(99,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(99,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(112,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(112,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(120,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(120,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(125,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(125,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  Token.cpp
+  TokenSprite.cpp
+  Unit.cpp
+  Scene.cpp
+  UnitController.cpp
+  Generowanie kodu...
+  AutobattlerPO.vcxproj -> C:\Users\gorsk\source\repos\AutobattlerPO\x64\Debug\AutobattlerPO.exe

@@ -67,7 +67,7 @@ std::tuple<std::vector<Unit*>, std::vector<std::string>> ShopScene::getTransitio
 }
 
 void ShopScene::setBackground() {
-	background.loadFromFile("../graphics/shop_bg.png");
+	background.loadFromFile("./graphics/shop_bg.png");
 }
 
 void ShopScene::drawSprites(sf::RenderWindow &gameWindow) {

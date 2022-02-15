@@ -1,132 +1,73 @@
 ﻿  CombatScene.cpp
 C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(29,36): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(60,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(81,71): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(81,51): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(98,70): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(98,50): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(121,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(60,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(121,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(65,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(126,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(65,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(126,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(70,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(131,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(70,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(131,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(82,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(147,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(82,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(147,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(87,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(152,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(87,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(152,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(92,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(157,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(92,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(157,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
   Game.cpp
-  ShopController.cpp
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopController.cpp(75,32): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
-  ShopScene.cpp
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(86,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(86,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(94,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(94,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(99,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(99,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(112,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(112,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(120,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(120,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(125,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(125,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
   Trwa generowanie kodu
-  2 of 843 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  186 of 956 functions (19.5%) were compiled, the rest were copied from previous compilation.
+    113 functions were new in current compilation
+    115 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   AutobattlerPO.vcxproj -> C:\Users\gorsk\source\repos\AutobattlerPO\x64\Release\AutobattlerPO.exe

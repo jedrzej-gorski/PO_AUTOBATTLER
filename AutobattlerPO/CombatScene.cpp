@@ -43,10 +43,83 @@ void CombatScene::startScene() {
 }
 
 void CombatScene::setBackground() {
-	background.loadFromFile("../graphics/battle_bg.png");
+	background.loadFromFile("./graphics/battle_bg.png");
+}
+
+void CombatScene::processMovements() {
+	int index = 0;
+	bool mustWait = 0;
+	while (movementQueue.size() != index && !mustWait) {
+		std::tuple<int, bool, int, int, bool> newMovement = movementQueue[index];
+		int unitIndex = std::get<0>(newMovement);
+		bool team = std::get<1>(newMovement);
+		int target_x = std::get<2>(newMovement);
+		int target_y = std::get<3>(newMovement);
+		//fade_out
+		if (target_x == -1 && target_y == -1) {
+			mustWait = 0;
+			movementQueue.erase(movementQueue.begin() + index);
+			if (team) {
+				isDeadTeam[unitIndex] = true;
+			}
+			else {
+				isDeadEnemy[unitIndex] = true;
+			}
+			continue;
+		}
+		else {
+			//actual movement. if movement performed, keep going until end of vector
+			if (team) {
+				int current_x = std::get<0>(playerTeam[unitIndex]->getPosition());
+				int current_y = std::get<1>(playerTeam[unitIndex]->getPosition());
+				float x_step = 0, y_step;
+				if (current_x == target_x && current_y == target_y) {
+					mustWait = 0;
+					movementQueue.erase(movementQueue.begin() + index);
+					continue;
+				}
+				else {
+					if (target_y - current_y > 0) {
+						y_step = 1;
+					}
+					else {
+						y_step = -1;
+					}
+					playerTeam[unitIndex]->setPosition(current_x + x_step, current_y + y_step);
+					mustWait = std::get<4>(newMovement);
+					isDuringAnimation = true;
+					index++;
+				}
+			}
+			else {
+				int current_x = std::get<0>(enemyTeam[unitIndex]->getPosition());
+				int current_y = std::get<1>(enemyTeam[unitIndex]->getPosition());
+				float x_step = 0, y_step;
+				if (current_x == target_x && current_y == target_y) {
+					mustWait = 0;
+					movementQueue.erase(movementQueue.begin() + index);
+					continue;
+				}
+				else {
+					if (target_y - current_y > 0) {
+						y_step = 1;
+					}
+					else {
+						y_step = -1;
+					}
+					enemyTeam[unitIndex]->setPosition(current_x + x_step, current_y + y_step);
+					mustWait = std::get<4>(newMovement);
+					isDuringAnimation = true;
+					index++;
+				}
+			}
+		}
+	}
+	isDuringAnimation = false;
 }
 
 void CombatScene::drawSprites(sf::RenderWindow &gameWindow) {
+	processMovements();
 	sf::Sprite backgroundSprite;
 	backgroundSprite.setTexture(background);
 	gameWindow.draw(backgroundSprite);
@@ -70,6 +143,10 @@ void CombatScene::drawSprites(sf::RenderWindow &gameWindow) {
 				attackShape.setPosition(sf::Vector2f(xPos + 191 - 11 - (16 * j), yPos + 191 - 11));
 				gameWindow.draw(attackShape);
 			}
+
+			if (isDeadTeam[i]) {
+				properSprite.setColor(sf::Color(255, 255, 255, 64));
+			}
 			gameWindow.draw(properSprite);
 		}
 	}
@@ -91,6 +168,10 @@ void CombatScene::drawSprites(sf::RenderWindow &gameWindow) {
 			for (int j = 0; j < enemyTeam[i]->getUnitAttack(); j++) {
 				attackShape.setPosition(sf::Vector2f(xPos + 191 - 11 - (16 * j), yPos + 191 - 11));
 				gameWindow.draw(attackShape);
+			}
+
+			if (isDeadEnemy[i]) {
+				properSprite.setColor(sf::Color(255, 255, 255, 64));
 			}
 			gameWindow.draw(properSprite);
 		}
@@ -123,12 +204,25 @@ void CombatScene::resolveEventQueue() {
 	while (currentHealth[0] > 0 && currentHealth[1] > 0) {
 		//each unit lowers oponent's health by their attack
 		currentHealth[0] -= enemyCopy[j]->getUnitAttack();
+		std::tuple<int, bool, int, int, bool> newMovement = std::make_tuple(j, 0, std::get<0>(enemyCopy[j]->getPosition()), std::get<1>(enemyCopy[j]->getPosition()) + 50, 0);
+		movementQueue.push_back(newMovement);
 		currentHealth[1] -= playerCopy[i]->getUnitAttack();
+		newMovement = std::make_tuple(i, 1, std::get<0>(playerCopy[i]->getPosition()), std::get<1>(playerCopy[i]->getPosition()) - 50, 1);
+		movementQueue.push_back(newMovement);
+
+		//move units back into their respective spots
+		newMovement = std::make_tuple(j, 0, std::get<0>(enemyCopy[j]->getPosition()), std::get<1>(enemyCopy[j]->getPosition()), 0);
+		movementQueue.push_back(newMovement);
+		newMovement = std::make_tuple(i, 1, std::get<0>(playerCopy[i]->getPosition()), std::get<1>(playerCopy[i]->getPosition()), 1);
+		movementQueue.push_back(newMovement);
 
 		//placeholder for attack animations
 
 		//if the unit dies, replace by the next team member if available
 		if (currentHealth[0] <= 0) {
+			//not a movement per se, just a signal to fade out the unit
+			newMovement = std::make_tuple(i, 1, -1, -1, 1);
+			movementQueue.push_back(newMovement);
 			if (i + 1 < MAX_TEAM_SIZE && playerCopy[i + 1]->getUnitType() != "NULL") {
 				i++;
 				currentHealth[0]= playerCopy[i]->getUnitHealth();
@@ -136,6 +230,8 @@ void CombatScene::resolveEventQueue() {
 			else {}
 		}
 		if (currentHealth[1] <= 0) {
+			newMovement = std::make_tuple(j, 0, -1, -1, 1);
+			movementQueue.push_back(newMovement);
 			if (j + 1 < MAX_TEAM_SIZE && enemyCopy[j + 1]->getUnitType() != "NULL") {
 				j++;
 				currentHealth[1] = enemyCopy[j]->getUnitHealth();
