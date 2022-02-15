@@ -22,7 +22,7 @@ class Token {
 	public:
 		Token(std::string unitType, int x, int y, SPRITE_MAP &imageData, int size);
 		void newAnimation(animationTag nextAnimation);
-		sf::Texture getNextTexture();
+		sf::Texture* getNextTexture();
 		void setPosition(int x, int y);
 		void setVelocity(int x, int y);
 		void setWidth(int x);

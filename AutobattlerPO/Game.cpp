@@ -1,11 +1,12 @@
 #include "Game.h"
 #include "Scene.h"
+#include <iostream>
 #include "ShopScene.h"
 #include "CombatScene.h"
 #include <fstream>
 
 void Game::initializeGame() {
-	std::ifstream dataStream("data/unitData.txt");
+	std::ifstream dataStream("../data/unitData.txt");
 	std::string unitName;
 	int unitRank, unitHealth, unitAttack;
 
@@ -17,12 +18,18 @@ void Game::initializeGame() {
 			unitData[unitName] = std::make_tuple(unitRank, unitHealth, unitAttack);
 		}
 	}
+	else {
+		std::cout << "ERROR - CAN'T LOAD UNIT DATA!\n";
+	}
 
 	//declaring a vector of empty units
 	//WARNING: watch out for processing graphics data on a unit type that doesn't exist
-	std::vector<Unit> emptyTeam(MAX_TEAM_SIZE, Unit("NULL", std::make_tuple(0, 0), graphicData, 0));
-	currentScene = ShopScene(savedRank, emptyTeam, unitData, graphicData, gameWindow);
-	currentScene.setBackground();
+	std::vector<Unit*> emptyTeam;
+	for (int i = 0; i < MAX_TEAM_SIZE; i++) {
+		emptyTeam.push_back(new Unit("NULL", std::make_tuple(0, 0), graphicData, 0));
+	}
+	currentScene = new ShopScene(savedRank, emptyTeam, unitData, graphicData);
+	currentScene->startScene();
 }
 
 Game::Game(sf::RenderWindow* passedWindow) {
@@ -33,12 +40,12 @@ Game::Game(sf::RenderWindow* passedWindow) {
 }
 
 void Game::passMouseInput(sf::Vector2i relativeMousePosition) {
-	currentScene.processMouseInput(relativeMousePosition);
+	currentScene->processMouseInput(relativeMousePosition);
 }
 
 void Game::changeScene() {
 	//vector with player team and valid units for random generation (if applicable, as CombatScene does NOT pass validUnits, the second vector in the tuple is empty)
-	std::tuple<std::vector<Unit>, std::vector<std::string>> transitionData = currentScene.getTransitionData();
+	std::tuple<std::vector<Unit*>, std::vector<std::string>> transitionData = currentScene->getTransitionData();
 	//if in combat
 	if (currentPhase) {
 		turn++;
@@ -46,24 +53,26 @@ void Game::changeScene() {
 		if (turn % 2 == 0 && savedRank < 3) {
 			savedRank++;
 		}
-		currentScene = ShopScene(savedRank, std::get<0>(transitionData), unitData, graphicData, gameWindow);
+		delete(currentScene);
+		currentScene = new ShopScene(savedRank, std::get<0>(transitionData), unitData, graphicData);
 		currentPhase = SHOP;
-		currentScene.startScene();
+		currentScene->startScene();
 	}
 	//if in shop
 	else {
-		currentScene = CombatScene(std::get<0>(transitionData), std::get<1>(transitionData), graphicData, unitData, gameWindow);
+		delete(currentScene);
+		currentScene = new CombatScene(std::get<0>(transitionData), std::get<1>(transitionData), graphicData, unitData);
 		currentPhase = COMBAT;
-		currentScene.startScene();
+		currentScene->startScene();
 	}
 }
 
 void Game::drawScene() {
-	currentScene.drawSprites();
+	currentScene->drawSprites(*gameWindow);
 }
 
 void Game::sendKeyboard(sf::Keyboard::Key keyToCheck) {
-	if (currentScene.processKeyboard(keyToCheck)) {
+	if (currentScene->processKeyboard(keyToCheck)) {
 		changeScene();
 	}
 }

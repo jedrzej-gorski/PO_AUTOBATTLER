@@ -10,19 +10,18 @@
 
 class Scene {
 	protected:
-		sf::Texture sceneBackground;
 		UNIT_MAP unitData;
 		SPRITE_MAP imageData;
-		sf::RenderWindow* gameWindow;
 	public:
-		Scene();
+		Scene(UNIT_MAP passedUnitData, SPRITE_MAP passedImageData);
+		Scene() = default;
+		virtual ~Scene() {};
 		virtual void startScene() {};
 		virtual void setBackground() {};
-		void drawBackground();
-		virtual bool processKeyboard(sf::Keyboard::Key keyToCheck) {};
-		virtual void drawSprites() {};
+		virtual bool processKeyboard(sf::Keyboard::Key keyToCheck);
+		virtual void drawSprites(sf::RenderWindow &gameWindow) {};
 		virtual void processMouseInput(sf::Vector2i relativeMousePosition) {};
-		virtual std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData() {};
+		virtual std::tuple<std::vector<Unit*>, std::vector<std::string>> getTransitionData();
 };
 
 #endif

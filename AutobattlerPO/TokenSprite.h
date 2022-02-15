@@ -13,10 +13,12 @@ class TokenSprite {
 		int currentFrame;
 		int startFrame;
 		int endFrame;
+		sf::Texture currentTexture;
 	public:
 		TokenSprite(std::string unitType, int lastFrame, SPRITE_MAP& imageData);
 		void setAnimationFrames(int, int);
-		sf::Texture getCurrentAnimationFrame();
+		sf::Texture* getCurrentTexture();
+		sf::Texture* getCurrentAnimationFrame();
 		bool setNextFrame();
 };
 #endif

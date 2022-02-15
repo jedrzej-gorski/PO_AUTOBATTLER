@@ -1,47 +1,65 @@
 ﻿  CombatScene.cpp
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(13,28): error C2065: "randomMax": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,3): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,28): error C2065: "validUnits": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,79): error C2065: "unitData": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,88): error C2065: "validUnits": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,72): error C2672: „std::get”: nie znaleziono zgodnej przeciążonej funkcji
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,125): error C2065: "unitData": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,134): error C2065: "validUnits": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,118): error C2672: „std::get”: nie znaleziono zgodnej przeciążonej funkcji
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,56): error C2672: „std::make_tuple”: nie znaleziono zgodnej przeciążonej funkcji
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(14,160): error C2065: "imageData": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(17,2): error C2065: "window": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(26,7): error C2589: "int": niedozwolony token po prawej stronie "::"
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(26,27): error C2148: całkowity rozmiar tablicy nie może przekroczyć 0x7fffffff bajtów
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(27,6): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(27,45): error C2059: błąd składniowy: „&&”
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(27,84): error C2059: błąd składniowy: „)”
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(27,85): error C2143: błąd składniowy: brakuje „;” przed „{”
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(28,22): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(28,49): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(29,22): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(29,48): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(46,23): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(46,49): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(47,23): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(47,50): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(51,8): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(53,23): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(53,50): error C2065: "playerTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(57,8): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(59,24): error C2065: "enemyTeam": niezadeklarowany identyfikator
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(59,50): error C2065: "enemyTeam": niezadeklarowany identyfikator
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(29,36): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(60,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(60,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(65,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(65,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(70,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(70,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(82,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(82,42): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(87,68): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(87,49): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(92,81): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(92,58): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
   Game.cpp
-  main.cpp
-  ShopController.cpp
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopController.cpp(61,31): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
-  ShopScene.cpp
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(3,158): error C2440: "<function-style-cast>": nie można konwertować z "initializer list" na "ShopController"
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(3,158): message : Żaden konstruktor nie mógł przyjąć typu źródłowego lub rozpoznanie przeciążenia konstruktora było niejednoznaczne
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(3,121): error C2512: "ShopController::ShopController": niedostępny odpowiedni konstruktor domyślny
-  Token.cpp
-  TokenSprite.cpp
-  Unit.cpp
-  Scene.cpp
-  UnitController.cpp
   Generowanie kodu...
+  AutobattlerPO.vcxproj -> C:\Users\gorsk\source\repos\AutobattlerPO\x64\Debug\AutobattlerPO.exe

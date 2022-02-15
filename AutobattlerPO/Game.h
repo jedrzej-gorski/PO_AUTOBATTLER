@@ -10,7 +10,8 @@ class Game {
 		int turn;
 		int savedRank;
 		int currentPhase;
-		Scene currentScene;
+		Scene *currentScene;
+		//Scene currentScene
 		SPRITE_MAP graphicData;
 		UNIT_MAP unitData;
 		sf::RenderWindow* gameWindow;

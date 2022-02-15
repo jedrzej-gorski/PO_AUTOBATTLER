@@ -7,25 +7,29 @@ class ShopController : public UnitController {
 		int money = 0;
 		int shopRank = 0;
 		int numberAllowedUnits = 4;
-		std::vector<Unit> shopUnits;
+		std::vector<Unit*> shopUnits;
 		Unit *selectedUnit;
 		int selectedType;
+		int selectedIndex;
 	public:
-		ShopController(int savedLevel, std::vector<Unit> savedTeam);
+		ShopController(int savedLevel, std::vector<Unit*> savedTeam);
+		~ShopController();
 		void updatePositions();
 		void processReroll(UNIT_MAP unit_data, SPRITE_MAP &imageData);
 		void processPurchase();
-		void processSell();
+		void processSell(SPRITE_MAP &imageData);
 		int getMoney();
 		bool hasSelectedUnit();
-		int getSelectedUnit();
+		Unit* getSelectedUnit();
 		bool teamIsEmpty();
 		void removeShopUnit(int removeIndex);
 		void initializeShop(UNIT_MAP unit_data, SPRITE_MAP &imageData);
-		std::vector<Unit> getPlayerTeam();
-		std::vector<Unit> getShopUnits();
+		std::vector<Unit*> getPlayerTeam();
+		std::vector<Unit*> getShopUnits();
 		std::vector<std::string> getValidUnits();
 		void setSelectedUnit(int index, int type);
+		void giveMoney(int amount);
+		void printMoney();
 };
 #endif
 

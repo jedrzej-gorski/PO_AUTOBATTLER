@@ -1,7 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#define MAX_MONEY 10
+#define MAX_MONEY 15
 #define PURCHASE_COST 3
 #define MAX_TEAM_SIZE 5
 #define LEFT_CLICK 0

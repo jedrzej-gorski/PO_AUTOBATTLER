@@ -10,14 +10,18 @@
 class ShopScene : public Scene {
 	private:
 		ShopController controller;
+		std::vector<Unit> drawnUnits;
+		sf::Texture background;
 	public:
-		ShopScene(int savedLevel, std::vector<Unit> savedTeam, UNIT_MAP passedUnitData, SPRITE_MAP passedImageData, sf::RenderWindow* passedWindow) : controller(ShopController(savedLevel, savedTeam)) {};
+		ShopScene(int savedLevel, std::vector<Unit*> savedTeam, UNIT_MAP passedUnitData, SPRITE_MAP passedImageData);
 		void startScene();
 		void resolveEventQueue();
+		void setBackground();
 		void processMouseInput(sf::Vector2i relativeMousePosition);
 		bool processKeyboard(sf::Keyboard::Key keyToCheck);
-		std::tuple<std::vector<Unit>, std::vector<std::string>> getTransitionData();
-		void drawSprites();
+		std::tuple<std::vector<Unit*>, std::vector<std::string>> getTransitionData();
+		void drawSprites(sf::RenderWindow &gameWindow);
+
 };
 
 #endif

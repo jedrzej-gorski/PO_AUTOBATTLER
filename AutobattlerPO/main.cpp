@@ -1,9 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(600, 800), "Autobattler");
+int main() {
+    sf::RenderWindow window(sf::VideoMode(1440, 810), "Autobattler");
     Game gameInstance = Game(&window);
     gameInstance.initializeGame();
 

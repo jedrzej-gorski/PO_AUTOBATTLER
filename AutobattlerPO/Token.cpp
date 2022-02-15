@@ -56,8 +56,8 @@ void Token::newAnimation(animationTag nextAnimation) {
 	animationQueue.push(nextAnimation);
 }
 
-sf::Texture Token::getNextTexture() {
-	Sprite.getCurrentAnimationFrame();
+sf::Texture* Token::getNextTexture() {
+	return Sprite.getCurrentTexture();
 	//the following implementation would be used for animations
 	/*if (animationQueue.empty()) {
 		std::cout << "ERROR - ANIMATION QUEUE EMPTY";
