@@ -125,3 +125,17 @@ bool ShopController::teamIsEmpty() {
 	}
 	return false;
 }
+
+void setSelectedUnit(int index, int type) {
+	if (type == 0) {
+		selectedUnit = *playerTeam[index];
+		selectedType = TEAM_UNIT;
+	}
+	else if (type == 1) {
+		selectedUnit = *shopUnits[index];
+		selectedType = SHOP_UNIT;
+	}
+	else {
+		//type=-1
+	}
+}
