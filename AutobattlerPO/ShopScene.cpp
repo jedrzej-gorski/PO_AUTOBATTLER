@@ -17,16 +17,16 @@ void ShopScene::processMouseInput(sf::Vector2i relativeMousePosition) {
 	std::vector<Unit> searchedUnits;
 	searchedUnits = controller.getPlayerTeam();
 	for (int i = 0; i < searchedUnits.size(); i++) {
-		if ((std::get<1>(searchedUnits[i].getPosition()) >= relativeMousePosition[0]) && ((std::get<1>(searchedUnits[i].getPosition()) <= relativeMousePosition[0]) + 191)
-			(std::get<1>(searchedUnits[i].getPosition()) >= relativeMousePosition[1]) && ((std::get<1>(searchedUnits[i].getPosition()) <= relativeMousePosition[1]) + 191)) {
+		if ((std::get<0>(searchedUnits[i].getPosition()) <= relativeMousePosition[0]) && ((std::get<0>(searchedUnits[i].getPosition()) + 191) >= relativeMousePosition[0]) &&
+			(std::get<1>(searchedUnits[i].getPosition()) <= relativeMousePosition[1]) && ((std::get<1>(searchedUnits[i].getPosition()) + 191) >= relativeMousePosition[1])) {
 			//overlap in playerTeam
 			ShopScene.setSelectedUnit(i, 0);
 		}
 	}
 	searchedUnits = controller.getShopUnits();
 	for (int i = 0; i < searchedUnits.size(); i++) {
-		if ((std::get<1>(searchedUnits[i].getPosition()) >= relativeMousePosition[0]) && ((std::get<1>(searchedUnits[i].getPosition()) <= relativeMousePosition[0]) + 191)
-			(std::get<1>(searchedUnits[i].getPosition()) >= relativeMousePosition[1]) && ((std::get<1>(searchedUnits[i].getPosition()) <= relativeMousePosition[1]) + 191)) {
+		if ((std::get<0>(searchedUnits[i].getPosition()) <= relativeMousePosition[0]) && ((std::get<0>(searchedUnits[i].getPosition()) + 191) >= relativeMousePosition[0]) &&
+			(std::get<1>(searchedUnits[i].getPosition()) <= relativeMousePosition[1]) && ((std::get<1>(searchedUnits[i].getPosition()) + 191) >= relativeMousePosition[1])) {
 			//overlap in shopUnits
 			ShopScene.setSelectedUnit(i, 1);
 		}
