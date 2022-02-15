@@ -4,7 +4,7 @@
 
 class ShopController : public UnitController {
 	private:
-		int money = 0;
+		int money = 1;
 		int shopRank = 0;
 		int numberAllowedUnits = 4;
 		std::vector<Unit*> shopUnits;

@@ -61,9 +61,8 @@ C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\CombatScene.cpp(92,58): 
               T=float
           ]
   Game.cpp
-  main.cpp
   ShopController.cpp
-C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopController.cpp(72,31): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopController.cpp(75,32): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
   ShopScene.cpp
 C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(86,48): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
@@ -125,13 +124,9 @@ C:\Users\gorsk\source\repos\AutobattlerPO\AutobattlerPO\ShopScene.cpp(125,58): w
           [
               T=float
           ]
-  Token.cpp
-  TokenSprite.cpp
-  Unit.cpp
-  Scene.cpp
-  UnitController.cpp
   Trwa generowanie kodu
-  Previous IPDB not found, fall back to full compilation.
-  All 842 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  2 of 843 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   AutobattlerPO.vcxproj -> C:\Users\gorsk\source\repos\AutobattlerPO\x64\Release\AutobattlerPO.exe

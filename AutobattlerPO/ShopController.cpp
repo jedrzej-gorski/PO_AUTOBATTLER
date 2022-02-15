@@ -44,10 +44,11 @@ void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
 	processReroll(unitData, imageData);
 	updatePositions();
 	money = MAX_MONEY;
+	printMoney();
 }
 
 void ShopController::processPurchase() {
-	if (money > PURCHASE_COST && selectedUnit != nullptr && selectedType == SHOP_UNIT) {
+	if (money >= PURCHASE_COST && selectedUnit != nullptr && selectedType == SHOP_UNIT) {
 		for (int i = 0; i < playerTeam.size(); i++) {
 			if (playerTeam[i]->getUnitType() == "NULL") {
 				delete(playerTeam[i]);
@@ -56,6 +57,7 @@ void ShopController::processPurchase() {
 				updatePositions();
 				selectedUnit = nullptr;
 				money -= 3;
+				printMoney();
 				break;
 			}
 		}
@@ -63,19 +65,22 @@ void ShopController::processPurchase() {
 }
 
 void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
-	for (int i = 0; i < shopUnits.size(); i++) {
-		delete(shopUnits[i]);
+	if (money > 0) {
+		for (int i = 0; i < shopUnits.size(); i++) {
+			delete(shopUnits[i]);
+		}
+		shopUnits.clear();
+		selectedUnit = nullptr;
+		int randomMax;
+		randomMax = validUnits.size();
+		for (int i = 0; i < numberAllowedUnits; i++) {
+			int randIndex = rand() % randomMax;
+			shopUnits.push_back(new Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData, DEFAULT_UNIT_SIZE));
+		}
+		updatePositions();
+		money -= 1;
+		printMoney();
 	}
-	shopUnits.clear();
-	selectedUnit = nullptr;
-	int randomMax;
-	randomMax = validUnits.size();
-	for (int i = 0; i < numberAllowedUnits; i++) {
-		int randIndex = rand() % randomMax;
-		shopUnits.push_back(new Unit(validUnits[randIndex], std::make_tuple(std::get<1>(unitData[validUnits[randIndex]]), std::get<2>(unitData[validUnits[randIndex]])), imageData, DEFAULT_UNIT_SIZE));
-	}
-	updatePositions();
-	money -= 1;
 }
 
 void ShopController::processSell(SPRITE_MAP& imageData) {
@@ -86,6 +91,7 @@ void ShopController::processSell(SPRITE_MAP& imageData) {
 		updatePositions();
 		selectedUnit = nullptr;
 		money += 2;
+		printMoney();
 	}
 }
 

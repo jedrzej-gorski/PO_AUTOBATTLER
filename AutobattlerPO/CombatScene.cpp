@@ -133,29 +133,30 @@ void CombatScene::resolveEventQueue() {
 				i++;
 				currentHealth[0]= playerCopy[i]->getUnitHealth();
 			}
+			else {}
 		}
 		if (currentHealth[1] <= 0) {
-			if (i + 1 < MAX_TEAM_SIZE && enemyCopy[j + 1]->getUnitType() != "NULL") {
+			if (j + 1 < MAX_TEAM_SIZE && enemyCopy[j + 1]->getUnitType() != "NULL") {
 				j++;
 				currentHealth[1] = enemyCopy[j]->getUnitHealth();
 			}
 		}
 	}
 
-	if(currentHealth[0] <= 0) { 
-		//player win
-		std::cout << "You WIN!";
-		//money += 5;
+	if(currentHealth[0] <= 0 && currentHealth[1] <= 0) {
+		//stalemate
+		std::cout << "Stalemate!\n";
+		//money += 3;
 	}
 	else if (currentHealth[1] <= 0) {
-		//enemy win
-		std::cout << "You lose.";
-		//money += 1;
+		//player win
+		std::cout << "You WIN!\n";
+		//money += 5;
 	}
 	else {
-		//stalemate
-		std::cout << "Stalemate!";
-		//money += 3;
+		//player loss
+		std::cout << "You Lose!\n";
+		//money += 1;
 	}
 	//std::cout << "hey";
 }
