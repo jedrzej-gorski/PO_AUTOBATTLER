@@ -8,7 +8,6 @@
 ShopController::ShopController(int savedRank, std::vector<Unit> savedTeam): UnitController(savedTeam) {
 	shopRank = savedRank;
 	selectedUnit = nullptr;
-	selectedType = NONE;
 }
 
 void ShopController::updatePositions() {
@@ -39,21 +38,18 @@ void ShopController::initializeShop(UNIT_MAP unitData, SPRITE_MAP &imageData) {
 }
 
 void ShopController::processPurchase() {
-	if (money > PURCHASE_COST && selectedType == SHOP_UNIT) {
+	if (money > PURCHASE_COST && selectedUnit != nullptr && selectedType == SHOP_UNIT) {
 		for (int i = 0; i < MAX_TEAM_SIZE; i++) {
 			if (playerTeam[i].getUnitType() == "NULL") {
 				playerTeam[i] = *selectedUnit;
-				removeShopUnit(i);
+				shopUnits.erase(shopUnits.begin() + getSelectedUnit());
 				updatePositions();
 				selectedUnit = nullptr;
+				money -= 3;
 				break;
 			}
 		}
 	}
-}
-
-void ShopController::removeShopUnit(int removeIndex) {
-	shopUnits.erase(shopUnits.begin() + removeIndex);
 }
 
 void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
@@ -70,17 +66,11 @@ void ShopController::processReroll(UNIT_MAP unitData, SPRITE_MAP& imageData) {
 }
 
 void ShopController::processSell() {
-	if (selectedType == TEAM_UNIT) {
-		for (int i = 0; i < MAX_TEAM_SIZE; i++) {
-			if (playerTeam[i].getUnitType() != "NULL") {
-				//if (sf::Mouse::GetPosition(window).x == unitSprite.getPosition().x &&
-				//	  sf::Mouse::GetPosition(window).y == unitSprite.getPosition().y){
-				//		playerTeam[i]=0;
-				//		money++;
-				//}
-				//check if mouse hovers over a unit
-			}
-		}
+	if (selectedType == TEAM_UNIT && selectedUnit != nullptr) {
+		playerTeam.erase(playerTeam.begin() + getSelectedUnit());
+		updatePositions();
+		selectedUnit = nullptr;
+		money += 2;
 	}
 }
 
@@ -107,6 +97,26 @@ bool ShopController::hasSelectedUnit() {
 	else {
 		return true;
 	}
+}
+
+int ShopController::getSelectedUnit() {
+	if (selectedUnit != nullptr) {
+		if (selectedType == SHOP_UNIT)
+			for (int i = 0; i < shopUnits.size(); i++) {
+				if (selectedUnit == &(shopUnits[i])) {
+					return i;
+				}
+			}
+		else {
+			for (int i = 0; i < playerTeam.size(); i++) {
+				if (selectedUnit == &(playerTeam[i])) {
+					return i;
+				}
+			}
+		}
+	}
+	return -1;
+
 }
 
 bool ShopController::teamIsEmpty() {

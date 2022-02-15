@@ -18,6 +18,7 @@ class ShopController : public UnitController {
 		void processSell();
 		int getMoney();
 		bool hasSelectedUnit();
+		int getSelectedUnit();
 		bool teamIsEmpty();
 		void removeShopUnit(int removeIndex);
 		void initializeShop(UNIT_MAP unit_data, SPRITE_MAP &imageData);

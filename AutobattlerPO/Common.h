@@ -8,7 +8,6 @@
 #define RIGHT_CLICK 1
 #define SHOP 0
 #define COMBAT 1
-#define NONE -1
 #define TEAM_UNIT 0
 #define SHOP_UNIT 1
 #define DEFAULT_UNIT_SIZE 191
